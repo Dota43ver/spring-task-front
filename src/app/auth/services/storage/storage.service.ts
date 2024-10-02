@@ -24,7 +24,16 @@ export class StorageService {
   }
 
   static getUser(): any {
-    return JSON.parse(localStorage?.getItem(USER) ?? '');
+    const user = localStorage.getItem(USER);
+    if (user) {
+      try {
+        return JSON.parse(user);
+      } catch (error) {
+        console.error('Error parsing user from localStorage:', error);
+        return null;
+      }
+    }
+    return null;
   }
 
   static getUserRole(): string {
