@@ -67,6 +67,21 @@
       </mat-error>
     </mat-form-field>
 
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Select the employee</mat-label>
+      <mat-select formControlName="employeeId" name="employeeId">
+        <mat-option
+          *ngFor="let employee of listOfEmployees"
+          [value]="employee.id"
+        >
+          {{ employee.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="updateTaskForm.get('employeeId')?.hasError('required')"
+        >This input is required.</mat-error
+      >
+    </mat-form-field>
+
     <button
       mat-raised-button
       color="primary"
