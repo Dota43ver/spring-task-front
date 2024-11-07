@@ -19,10 +19,4 @@ export class DashboardComponent {
       this.listOfTasks = res;
     });
   }
-
-  postTask(task: any) {
-    this.service.getEmployeeTasksById().subscribe((res) => {
-      console.log(res);
-    });
-  }
 }
